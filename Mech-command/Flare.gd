@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Flare
 
 @onready var Sprite: Sprite2D = $Sprite
 
@@ -12,14 +13,8 @@ var flare_travel: bool = false # Is the projectile moving?
 var travel_arc_timing # Calculated travel time between launch and landing
 
 func _physics_process(delta) -> void:
-	# TEST input to fire flare
-	if Input.is_action_just_pressed("flare"):
-		flare_target = get_global_mouse_position()
-		origin_pos = position
-		set_flare_travel(flare_target)
-		
-		var dir = position.direction_to(flare_target)
-		velocity = dir.normalized() * proj_speed
+	var dir = position.direction_to(flare_target)
+	velocity = dir.normalized() * proj_speed
 	
 	# Flare motion in the x/y plane; seperate from the 'height' traversal
 	if origin_pos < flare_target and not position >= flare_target:
@@ -43,6 +38,7 @@ func _physics_process(delta) -> void:
 func set_flare_travel(target: Vector2) -> Node:
 	flare_travel = true
 	flare_target = target
+	origin_pos = position
 	travel_arc_timing = flare_target.distance_to(self.position)/proj_speed
 	return self
 
@@ -51,6 +47,7 @@ func set_flare_travel(target: Vector2) -> Node:
 func flare_descent(arc: float = travel_arc_timing) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, 'height', 1, (arc)/2).set_trans(Tween.TRANS_SINE)
+	tween.tween_callback(queue_free)
 
 # Calls the tween for the first half of the flare arc
 # Defaults to the node's built in arc; can be overwritten

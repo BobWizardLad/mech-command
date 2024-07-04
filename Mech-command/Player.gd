@@ -2,6 +2,15 @@ extends CharacterBody2D
 
 const SPEED: float = 300.0
 
+@onready var FLARE: Resource = load("res://flare.tscn")
+
+func _process(_delta):
+	if Input.is_action_just_pressed("flare"):
+		var new_flare: Flare = FLARE.instantiate()
+		new_flare.position = position
+		new_flare.set_flare_travel(get_global_mouse_position())
+		get_parent().add_child(new_flare)
+
 func _physics_process(delta) -> void:
 	# Get the input direction in both axis and handle direction
 	var horizontal = Input.get_axis("player_left", "player_right")
