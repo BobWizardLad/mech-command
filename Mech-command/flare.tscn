@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://rwgdqsppd67i"]
+
+[ext_resource type="Script" path="res://Flare.gd" id="1_ib87q"]
+[ext_resource type="Texture2D" uid="uid://dq40bnqw48kkk" path="res://red_can.png" id="1_mt8du"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oioea"]
+
+[node name="Flare" type="CharacterBody2D"]
+position = Vector2(24, 23)
+script = ExtResource("1_ib87q")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.0138408, 0.0138408)
+texture = ExtResource("1_mt8du")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oioea")
+disabled = true

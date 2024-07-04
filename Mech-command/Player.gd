@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED: float = 300.0
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var horizontal = Input.get_axis("player_left", "player_right")
 	var vertical = Input.get_axis("player_up", "player_down")
