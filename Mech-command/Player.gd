@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED: float = 300.0
 
+@onready var MINIGUN: Minigun = $Minigun
 @onready var FLARE: Resource = load("res://flare.tscn")
 
 func _process(_delta):
@@ -10,6 +11,11 @@ func _process(_delta):
 		new_flare.position = position
 		new_flare.set_flare_travel(get_global_mouse_position())
 		get_parent().add_child(new_flare)
+	
+	if Input.is_action_pressed("minigun"):
+		MINIGUN.set_target(get_global_mouse_position()).set_firing(true)
+	else:
+		MINIGUN.set_firing(false)
 
 func _physics_process(delta) -> void:
 	# Get the input direction in both axis and handle direction

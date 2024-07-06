@@ -13,8 +13,7 @@ var flare_travel: bool = false # Is the projectile moving?
 var travel_arc_timing # Calculated travel time between launch and landing
 
 func _physics_process(delta) -> void:
-	var dir = position.direction_to(flare_target)
-	velocity = dir.normalized() * proj_speed
+	velocity = position.direction_to(flare_target).normalized() * proj_speed
 	
 	# Flare motion in the x/y plane; seperate from the 'height' traversal
 	if origin_pos < flare_target and not position >= flare_target:
