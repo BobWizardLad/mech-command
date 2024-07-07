@@ -24,3 +24,7 @@ shape = SubResource("RectangleShape2D_2jhof")
 position = Vector2(0, 43)
 script = ExtResource("3_jhk71")
 projectile = ExtResource("4_aaugj")
+firing_cooldown = 0.02
+
+[node name="Cooldown" type="Timer" parent="Minigun"]
+one_shot = true
