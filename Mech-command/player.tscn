@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbktub8meuklu"]
+[gd_scene load_steps=7 format=3 uid="uid://bbktub8meuklu"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_15jdx"]
 [ext_resource type="Texture2D" uid="uid://dgqeeste88vb" path="res://icon.svg" id="2_7p8k7"]
 [ext_resource type="Script" path="res://Gun.gd" id="3_jhk71"]
 [ext_resource type="PackedScene" uid="uid://squj0xm4s0si" path="res://chain_bullet.tscn" id="4_aaugj"]
+[ext_resource type="PackedScene" uid="uid://chv4pscsdl4ov" path="res://health.tscn" id="5_kfl33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jhof"]
 size = Vector2(127, 127)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(85, 77)
 motion_mode = 1
 script = ExtResource("1_15jdx")
 
@@ -33,5 +33,9 @@ one_shot = true
 
 [node name="Reload" type="Timer" parent="Minigun"]
 one_shot = true
+
+[node name="Health" parent="." instance=ExtResource("5_kfl33")]
+position = Vector2(0, -81)
+HEALTH_MAX = 2200.0
 
 [connection signal="timeout" from="Minigun/Reload" to="Minigun" method="load_mag"]

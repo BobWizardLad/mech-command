@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2meogwhywnf0"]
+[gd_scene load_steps=5 format=3 uid="uid://c2meogwhywnf0"]
 
 [ext_resource type="Script" path="res://Bot.gd" id="1_6vydx"]
 [ext_resource type="Texture2D" uid="uid://dgqeeste88vb" path="res://icon.svg" id="2_u8qqd"]
+[ext_resource type="PackedScene" uid="uid://chv4pscsdl4ov" path="res://health.tscn" id="3_orwth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syem7"]
 size = Vector2(46, 46)
@@ -17,3 +18,8 @@ texture = ExtResource("2_u8qqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_syem7")
+
+[node name="Health" parent="." instance=ExtResource("3_orwth")]
+position = Vector2(0, -36)
+scale = Vector2(0.5, 0.5)
+HEALTH_MAX = 1200.0
