@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbktub8meuklu"]
+[gd_scene load_steps=6 format=3 uid="uid://bbktub8meuklu"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_15jdx"]
 [ext_resource type="Texture2D" uid="uid://dgqeeste88vb" path="res://icon.svg" id="2_7p8k7"]
-[ext_resource type="Script" path="res://Minigun.gd" id="3_jhk71"]
+[ext_resource type="Script" path="res://Gun.gd" id="3_jhk71"]
+[ext_resource type="PackedScene" uid="uid://squj0xm4s0si" path="res://chain_bullet.tscn" id="4_aaugj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jhof"]
 size = Vector2(129, 127)
@@ -22,3 +23,4 @@ shape = SubResource("RectangleShape2D_2jhof")
 [node name="Minigun" type="Node2D" parent="."]
 position = Vector2(0, 43)
 script = ExtResource("3_jhk71")
+projectile = ExtResource("4_aaugj")

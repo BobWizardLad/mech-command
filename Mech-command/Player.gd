@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED: float = 300.0
 
-@onready var MINIGUN: Minigun = $Minigun
+@onready var MINIGUN: Gun = $Minigun
 @onready var FLARE: Resource = load("res://flare.tscn")
 
 func _process(_delta):

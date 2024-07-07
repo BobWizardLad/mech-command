@@ -1,8 +1,7 @@
 extends Node2D
-class_name Minigun
+class_name Gun
 
-@onready var projectile: Resource = load("res://chain_bullet.tscn")
-
+@export var projectile: Resource
 @export var firing: bool = false
 @export var target: Vector2 = Vector2.ZERO
 
@@ -21,10 +20,10 @@ func _process(delta):
 		get_parent().get_parent().add_child(next_bullet)
 		
 
-func set_firing(is_firing: bool) -> Minigun:
+func set_firing(is_firing: bool) -> Gun:
 	firing = is_firing
 	return self
 
-func set_target(target_pos: Vector2) -> Minigun:
+func set_target(target_pos: Vector2) -> Gun:
 	target = target_pos
 	return self
