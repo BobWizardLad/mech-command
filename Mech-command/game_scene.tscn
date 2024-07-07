@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://3w4l7ams6uph"]
+[gd_scene load_steps=4 format=3 uid="uid://3w4l7ams6uph"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_jrbx7"]
 [ext_resource type="PackedScene" uid="uid://bbktub8meuklu" path="res://player.tscn" id="2_qofm7"]
+[ext_resource type="PackedScene" uid="uid://c2meogwhywnf0" path="res://bot.tscn" id="3_lv8kf"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_jrbx7")
 
 [node name="Player" parent="." instance=ExtResource("2_qofm7")]
+
+[node name="Allies" type="Node" parent="."]
+
+[node name="Bot2" parent="Allies" instance=ExtResource("3_lv8kf")]
+modulate = Color(1, 1, 0.541176, 1)
+position = Vector2(302, 182)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Bot" parent="Enemies" instance=ExtResource("3_lv8kf")]
+modulate = Color(1, 0.364706, 0, 1)
+position = Vector2(302, 110)

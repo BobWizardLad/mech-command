@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2meogwhywnf0"]
+
+[ext_resource type="Script" path="res://Bot.gd" id="1_6vydx"]
+[ext_resource type="Texture2D" uid="uid://dgqeeste88vb" path="res://icon.svg" id="2_u8qqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syem7"]
+size = Vector2(46, 46)
+
+[node name="Bot" type="CharacterBody2D"]
+script = ExtResource("1_6vydx")
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_u8qqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_syem7")

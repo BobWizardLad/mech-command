@@ -46,7 +46,7 @@ func set_flare_travel(target: Vector2) -> Node:
 func flare_descent(arc: float = travel_arc_timing) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, 'height', 1, (arc)/2).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(queue_free)
+	tween.tween_callback(landed)
 
 # Utility Funtion: Calls the tween for the first half of the flare arc
 # Defaults to the node's built in arc; can be overwritten
@@ -54,3 +54,9 @@ func flare_ascent(arc: float = travel_arc_timing) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, 'height', 3, (arc)/2).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(flare_descent)
+	
+func landed():
+	var allies = get_tree().get_nodes_in_group("Allies")
+	for each in allies:
+		each.path_to_command(flare_target)
+	queue_free()

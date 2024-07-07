@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://squj0xm4s0si" path="res://chain_bullet.tscn" id="4_aaugj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jhof"]
-size = Vector2(129, 127)
+size = Vector2(127, 127)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(85, 77)
@@ -17,7 +17,7 @@ script = ExtResource("1_15jdx")
 texture = ExtResource("2_7p8k7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 1.5)
+position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_2jhof")
 
 [node name="Minigun" type="Node2D" parent="."]
