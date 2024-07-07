@@ -25,12 +25,13 @@ position = Vector2(0, 43)
 script = ExtResource("3_jhk71")
 projectile = ExtResource("4_aaugj")
 firing_cooldown = 0.12
-mag_size = 5
-reload_time = 2.0
+mag_size = 20
+reload_time = 3.0
 
 [node name="Cooldown" type="Timer" parent="Minigun"]
 one_shot = true
 
 [node name="Reload" type="Timer" parent="Minigun"]
+one_shot = true
 
 [connection signal="timeout" from="Minigun/Reload" to="Minigun" method="load_mag"]

@@ -13,9 +13,7 @@ func _process(_delta):
 		get_parent().add_child(new_flare)
 	
 	if Input.is_action_pressed("minigun"):
-		MINIGUN.set_target(get_global_mouse_position()).set_firing(true)
-	else:
-		MINIGUN.set_firing(false)
+		MINIGUN.set_target(get_global_mouse_position()).fire()
 
 func _physics_process(delta) -> void:
 	# Get the input direction in both axis and handle direction
