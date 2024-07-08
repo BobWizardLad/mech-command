@@ -54,6 +54,12 @@ minigun={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_2="Can_Be_Shot"
+2d_physics/layer_1="PhysicsCollide"
+2d_physics/layer_2="Shooting"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Health
 
 @export var HEALTH_MAX: float
 
@@ -13,7 +14,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	HEALTH_BAR.value = current_health
-	
-	current_health -= 1
+
 	if current_health <= 0:
 		get_parent().queue_free()
+
+func take_damage(damage: float) -> float:
+	current_health -= damage
+	return current_health

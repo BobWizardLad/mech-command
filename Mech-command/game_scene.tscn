@@ -11,12 +11,16 @@ script = ExtResource("1_jrbx7")
 
 [node name="Allies" type="Node" parent="."]
 
-[node name="Bot2" parent="Allies" instance=ExtResource("3_lv8kf")]
-modulate = Color(1, 1, 0.541176, 1)
-position = Vector2(302, 182)
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Bot" parent="Enemies" instance=ExtResource("3_lv8kf")]
 modulate = Color(1, 0.364706, 0, 1)
-position = Vector2(302, 110)
+position = Vector2(716, 258)
+
+[node name="Bot2" parent="Enemies" instance=ExtResource("3_lv8kf")]
+modulate = Color(1, 0.364706, 0, 1)
+position = Vector2(604, 106)
+
+[node name="Bot3" parent="Enemies" instance=ExtResource("3_lv8kf")]
+modulate = Color(1, 0.364706, 0, 1)
+position = Vector2(607, 432)
