@@ -8,6 +8,7 @@
 script = ExtResource("1_jrbx7")
 
 [node name="Player" parent="." instance=ExtResource("2_qofm7")]
+position = Vector2(232, 280)
 
 [node name="Allies" type="Node" parent="."]
 
