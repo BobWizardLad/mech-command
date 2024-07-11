@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://3w4l7ams6uph"]
+[gd_scene load_steps=5 format=3 uid="uid://3w4l7ams6uph"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_jrbx7"]
 [ext_resource type="PackedScene" uid="uid://bbktub8meuklu" path="res://player.tscn" id="2_qofm7"]
 [ext_resource type="PackedScene" uid="uid://c2meogwhywnf0" path="res://bot.tscn" id="3_lv8kf"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ta2aq"]
+vertices = PackedVector2Array(1554, -35, 1576, 483, 1187, 667, 511, 783, 152, 457, -80, 148, 804, -302)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-96, 145, 803, -313, 1564, -42, 1587, 490, 1189, 677, 509, 794, 145, 464)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_jrbx7")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-195, 99)
+navigation_polygon = SubResource("NavigationPolygon_ta2aq")
 
 [node name="Player" parent="." instance=ExtResource("2_qofm7")]
 position = Vector2(232, 280)
