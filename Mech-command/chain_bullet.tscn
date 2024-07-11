@@ -3,20 +3,17 @@
 [ext_resource type="Script" path="res://ChainBullet.gd" id="1_ffvbf"]
 [ext_resource type="Texture2D" uid="uid://dq40bnqw48kkk" path="res://red_can.png" id="2_s2kra"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgqkc"]
-radius = 2.0
-height = 10.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yc03y"]
 
-[node name="ChainBullet" type="CharacterBody2D"]
+[node name="chain_bullet" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ffvbf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.005, 0.005)
+scale = Vector2(0.008, 0.007)
 texture = ExtResource("2_s2kra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_lgqkc")
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_yc03y")

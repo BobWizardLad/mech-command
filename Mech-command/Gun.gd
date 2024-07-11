@@ -11,7 +11,7 @@ class_name Gun
 @export var reload_time: float
 
 var mag_count: int
-var next_bullet: Chainbullet
+var next_bullet: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +22,7 @@ func _ready():
 func fire() -> void:
 	if COOLDOWN.is_stopped() and mag_count > 0:
 		next_bullet = projectile.instantiate()
-		next_bullet.bullet_target(target)
+		next_bullet.bullet_target(target).set_ignore_parent(get_parent())
 		next_bullet.position = global_position
 		get_parent().get_parent().add_child(next_bullet)
 		mag_count -= 1
