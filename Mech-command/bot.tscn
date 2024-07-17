@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2meogwhywnf0"]
+[gd_scene load_steps=6 format=3 uid="uid://c2meogwhywnf0"]
 
 [ext_resource type="Script" path="res://Bot.gd" id="1_6vydx"]
 [ext_resource type="Texture2D" uid="uid://dgqeeste88vb" path="res://icon.svg" id="2_u8qqd"]
 [ext_resource type="PackedScene" uid="uid://chv4pscsdl4ov" path="res://health.tscn" id="3_orwth"]
+[ext_resource type="PackedScene" uid="uid://q75s81o2o7fn" path="res://minigun.tscn" id="4_0h61m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syem7"]
 size = Vector2(32, 30)
@@ -31,5 +32,7 @@ radius = 30.0
 time_horizon_agents = 0.5
 max_speed = 200.0
 debug_enabled = true
+
+[node name="Minigun" parent="." instance=ExtResource("4_0h61m")]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

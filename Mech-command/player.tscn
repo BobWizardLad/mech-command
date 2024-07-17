@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbktub8meuklu"]
+[gd_scene load_steps=6 format=3 uid="uid://bbktub8meuklu"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_15jdx"]
 [ext_resource type="Texture2D" uid="uid://dgqeeste88vb" path="res://icon.svg" id="2_7p8k7"]
-[ext_resource type="Script" path="res://Gun.gd" id="3_jhk71"]
-[ext_resource type="PackedScene" uid="uid://squj0xm4s0si" path="res://chain_bullet.tscn" id="4_aaugj"]
+[ext_resource type="PackedScene" uid="uid://q75s81o2o7fn" path="res://minigun.tscn" id="3_jqiap"]
 [ext_resource type="PackedScene" uid="uid://chv4pscsdl4ov" path="res://health.tscn" id="5_kfl33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jhof"]
@@ -22,22 +21,8 @@ texture = ExtResource("2_7p8k7")
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_2jhof")
 
-[node name="Minigun" type="Node2D" parent="."]
-position = Vector2(0, 43)
-script = ExtResource("3_jhk71")
-projectile = ExtResource("4_aaugj")
-firing_cooldown = 0.06
-mag_size = 20
-reload_time = 3.0
-
-[node name="Cooldown" type="Timer" parent="Minigun"]
-one_shot = true
-
-[node name="Reload" type="Timer" parent="Minigun"]
-one_shot = true
+[node name="Minigun" parent="." instance=ExtResource("3_jqiap")]
 
 [node name="Health" parent="." instance=ExtResource("5_kfl33")]
 position = Vector2(0, -81)
 HEALTH_MAX = 2200.0
-
-[connection signal="timeout" from="Minigun/Reload" to="Minigun" method="load_mag"]

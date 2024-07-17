@@ -17,21 +17,21 @@ script = ExtResource("1_jrbx7")
 position = Vector2(-195, 99)
 navigation_polygon = SubResource("NavigationPolygon_ta2aq")
 
-[node name="Player" parent="." instance=ExtResource("2_qofm7")]
-position = Vector2(232, 280)
-
 [node name="Allies" type="Node" parent="."]
+
+[node name="Player" parent="Allies" groups=["Allies"] instance=ExtResource("2_qofm7")]
+position = Vector2(232, 280)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Bot" parent="Enemies" instance=ExtResource("3_lv8kf")]
+[node name="Bot" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_lv8kf")]
 modulate = Color(1, 0.364706, 0, 1)
 position = Vector2(716, 258)
 
-[node name="Bot2" parent="Enemies" instance=ExtResource("3_lv8kf")]
+[node name="Bot2" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_lv8kf")]
 modulate = Color(1, 0.364706, 0, 1)
 position = Vector2(604, 106)
 
-[node name="Bot3" parent="Enemies" instance=ExtResource("3_lv8kf")]
+[node name="Bot3" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_lv8kf")]
 modulate = Color(1, 0.364706, 0, 1)
 position = Vector2(607, 432)

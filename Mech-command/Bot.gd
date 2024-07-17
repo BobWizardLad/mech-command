@@ -1,18 +1,25 @@
 extends CharacterBody2D
 
 var movement_speed: float = 200.0
-var movement_target_position: Vector2
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var minigun: Gun = $Minigun
+
+# TODO all player targeting is currently omnipotent, please make a real
+# targeting algorithm >=^[
 
 func _ready():
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
-
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
+
+func _process(_delta):
+	if navigation_agent.target_position != null && navigation_agent.distance_to_target() < 250:
+		minigun.set_target(get_parent().get_parent().find_child("Player").position)
+		minigun.fire()
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.

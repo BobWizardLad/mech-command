@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://q75s81o2o7fn"]
+
+[ext_resource type="Script" path="res://Gun.gd" id="1_gt8t3"]
+[ext_resource type="PackedScene" uid="uid://squj0xm4s0si" path="res://chain_bullet.tscn" id="2_v4he3"]
+
+[node name="Minigun" type="Node2D"]
+script = ExtResource("1_gt8t3")
+projectile = ExtResource("2_v4he3")
+firing_cooldown = 0.06
+mag_size = 20
+reload_time = 3.0
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Reload" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Reload" to="." method="load_mag"]

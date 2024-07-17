@@ -6,7 +6,7 @@ class_name Chainbullet
 @export var origin_spread: Vector2i = Vector2i(11, -5) # Spread is max-1, min
 @export var bullet_timeout: int = 2
 
-var ignore_parent: Node
+var my_team: String
 var velocity: Vector2
 var life_timer: SceneTreeTimer
 var origin_pos: Vector2 # Relative launch position
@@ -15,7 +15,7 @@ signal target_body_entered
 
 func _ready() -> void:
 	# Connect to the game scene to signal a bullet collision
-	target_body_entered.connect(Callable(get_parent(), "_bullet_collision"))
+	target_body_entered.connect(Callable(get_parent(), "_bullet_collision"), Object.CONNECT_PERSIST)
 	
 	position += Vector2(randi() % origin_spread.x + origin_spread.y, randi() % origin_spread.x - origin_spread.y)
 	origin_pos = position
@@ -30,8 +30,8 @@ func _physics_process(_delta) -> void:
 	
 	if has_overlapping_bodies():
 		var body = get_overlapping_bodies()[0]
-		target_body_entered.emit(body, ignore_parent)
-		if body != ignore_parent:
+		target_body_entered.emit(body, my_team)
+		if not body.is_in_group(my_team):
 			life_timeout()
 
 func bullet_target(new_target: Vector2 = target) -> Area2D:
@@ -44,6 +44,6 @@ func life_timeout() -> void:
 
 # Set which node to not deal damage to; prevents self damage from
 # bullets spawning inside hitbox
-func set_ignore_parent(parent: Node2D) -> Area2D:
-	ignore_parent = parent
+func set_team(team: String) -> Area2D:
+	my_team = team
 	return self
